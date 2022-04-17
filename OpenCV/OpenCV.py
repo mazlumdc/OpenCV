@@ -3,6 +3,7 @@ import numpy as np
 
 
 
+
 #######################################################################################################################
 #INTRODUCTION TO OpenCV
 #######################################################################################################################
@@ -12,7 +13,7 @@ image = cv2.imread("./images/lena.jpeg")
 
 # Image properties
 print("Type of image: ",type(image))
-print("Data type of image: ",image.dtype) # neden uint8 -> https://docs.opencv.org/2.4/modules/highgui/doc/user_interface.html#imshow
+print("Data type of image: ",image.dtype) # why uint8 ?-> https://docs.opencv.org/2.4/modules/highgui/doc/user_interface.html#imshow
 
 
 print(image.shape)
@@ -49,10 +50,11 @@ cv2.imshow("gray image",gray_image)
 cv2.waitKey(0)
 
 
+
+
 #######################################################################################################################
 # MANIPULATING PIXEL VALUES (Accessing and changing pixels of an image)
 #######################################################################################################################
-
 
 # Let's create a picture ourselves
 img = np.zeros(shape=(500,500,3),dtype=np.uint8)
@@ -73,6 +75,7 @@ img_grayscale[50,50] = 0
 
 cv2.imshow("Grayscale",img_grayscale)
 cv2.waitKey(0)
+
 
 
 
@@ -103,11 +106,12 @@ cv2.destroyAllWindows() #'destroys the open window'
 #######################################################################################################################
 
 """
-OpenCV'deki interpolasyon çeşitleri:
+Types of interpolation in OpenCV:
+
 - INTER_NEAREST - a nearest-neighbor interpolation
 - INTER_LINEAR - a bilinear interpolation (used by default)
-- INTER_AREA - resampling using pixel area relation. It may be a preferred method for image decimation. 
-                But when the image is zoomed, it is similar to the INTER_NEAREST method.
+- INTER_AREA - Resampling using pixel area relation. It may be a preferred method for image decimation. 
+                But when the image is zoomed, it is similar to the INTER_NEAREST method.              
 - INTER_CUBIC - a bicubic interpolation over 4x4 pixel neighborhood
 - INTER_LANCZOS4 - a Lanczos interpolation over 8x8 pixel neighborhood
 
@@ -120,7 +124,7 @@ new_img = cv2.resize(img,dsize=(200,200),interpolation=cv2.INTER_LINEAR) # inter
 print("Shape after resizing: ",img.shape)
 
 '''
-attention , the first value of img.shape gives the height of the image 
+Attention! , the first value of img.shape gives the height of the image 
 but the first value written in resize() is the width in the new resize.
 '''
 
